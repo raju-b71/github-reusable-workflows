@@ -2,7 +2,7 @@ name: Continuous Integration - Reusable
 on: [workflow_call]                                                  #on when you want to run this- with workflowcall
 jobs:
   CI_Steps:
-    runs-on: ubuntu-latest
+    runs-on: ci-runner-ec2                                              #added runner that we created
     steps:
       - name: Code Checkout
         uses: actions/checkout@v4
