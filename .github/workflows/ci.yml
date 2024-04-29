@@ -1,10 +1,10 @@
 name: Continuous Integration - Reusable
 on:                                                  #on when you want to run this- with workflowcall
   workflow_call:
-   inputs:
-     project-name:
-       required: true
-       type: string
+    inputs:
+      project-name:
+        required: true
+        type: string
 jobs:
   CI_Steps:
     runs-on: [self-hosted]                                         #added runner that we created
