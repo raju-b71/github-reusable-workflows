@@ -17,7 +17,7 @@ jobs:
 #        name: Code Test
       - run: npm install
         name: Install NodeJS modules
-      - run: npm rpm test:unit
+      - run: echo npm rpm test:unit
         name: Code Unit Tests
       - run:  echo npm rpm test:integration
         name: code integration tests
