@@ -19,9 +19,9 @@ jobs:
         name: Install NodeJS modules
       - run: npm rpm test:unit
         name: Code Unit Tests
-      - run: npm rpm test:integration
-        name: /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.host.url=http://sonarqube-internal.rajdevops.online:9000 -Dsonar.projectKey=${{ inputs.project_name }} -Dsonar.qualitygate.wait=true
-      - run: echo ok
+      - run:  echo npm rpm test:integration
+        name: code integration tests
+      - run: /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.host.url=http://sonarqube-internal.rajdevops.online:9000 -Dsonar.projectKey=${{ inputs.project_name }} -Dsonar.qualitygate.wait=true
         name: Code Review
       - run: echo ok
         name: Release Software
