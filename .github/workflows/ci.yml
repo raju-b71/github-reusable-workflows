@@ -17,9 +17,9 @@ jobs:
 #        name: Code Test
       - run: npm install
         name: Install NodeJS modules
-      - run: echo npm rpm test:unit
+      - run: echo npm run test:unit
         name: Code Unit Tests
-      - run:  echo npm rpm test:integration
+      - run:  echo npm run test:integration
         name: code Integration Tests
       - run: /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.host.url=http://sonarqube-internal.rajdevops.online:9000 -Dsonar.projectKey=${project_name} -Dsonar.qualitygate.wait=true
         name: Code Review
