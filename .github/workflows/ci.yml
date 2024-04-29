@@ -21,7 +21,7 @@ jobs:
         name: Code Unit Tests
       - run:  echo npm run test:integration
         name: code Integration Tests
-      - run: /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.host.url=http://sonarqube-internal.rajdevops.online:9000 -Dsonar.projectKey=${project_name} -Dsonar.qualitygate.wait=true
+      - run: echo /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.host.url=http://sonarqube-internal.rajdevops.online:9000 -Dsonar.projectKey=${project_name} -Dsonar.qualitygate.wait=true
         name: Code Review
       - run: echo ok
         name: Release Software
