@@ -5,6 +5,10 @@ on:                                                  #on when you want to run th
       project-name:
         required: true
         type: string
+    secrets:
+      vault_token:
+        required: true
+
 jobs:
   CI_Steps:
     runs-on: [self-hosted]                                         #added runner that we created
@@ -21,7 +25,7 @@ jobs:
         name: Code Unit Tests
       - run:  echo npm run test:integration
         name: code Integration Tests
-      - run: echo /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.host.url=http://sonarqube-internal.rajdevops.online:9000 -Dsonar.projectKey=${{ inputs.project-name }} -Dsonar.qualitygate.wait=true
+      - run: echo /opt/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner -Dsonar.host.url=http://sonarqube-internal.rajdevops.online:9000 -Dsonar.projectKey=${{ inputs.project-name }} -Dsonar.qualitygate.wait=true - ${{ secrets.vault_token }}}
         name: Code Review
       - run: echo ok
         name: Release Software
