@@ -33,7 +33,7 @@ jobs:
       - run: echo ok
         name: Code lint
 
-#      - run: echo ok
+#  k    - run: echo ok
 #        name: Code Test
       - run: npm install
         name: Install NodeJS modules
