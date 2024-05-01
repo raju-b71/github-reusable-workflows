@@ -41,9 +41,14 @@ jobs:
 
       - run: echo ${GITHUB_REF_NAME} >version
         name: Create Version File
-      - run: zip -r ${GITHUB_REF_NAME}.zip ${{ inputs.release_archive_file }}
-        name: Prepare Artifact
-      - run: ls -lh
-#      - run: curl -f -v --user ${{ steps.vault-secrets.outputs.artifactory_user }}:${{ steps.vault-secrets.outputs.artifactory_password }} --data-binary @artifact.zip -X PUT "http://artifactory-internal.rajdevops.online:8081/artifactory/${{ inputs.project_name }}/${GITHUB_REF_NAME}.zip"
+
+
+      - name: Prepare Artifact
+        uses: vimtor/action-zip@v1.2
+        with:
+          files: ${{ inputs.release_archive_file }}
+          dest: artifact.zip
+
+      - run: curl -f -v --user ${{ steps.vault-secrets.outputs.artifactory_user }}:${{ steps.vault-secrets.outputs.artifactory_password }} --data-binary @artifact.zip -X PUT "http://artifactory-internal.rajdevops.online:8081/artifactory/${{ inputs.project_name }}/${GITHUB_REF_NAME}.zip"
         name: Upload Artifact
 #        if:  ${{ startsWith(github.ref, 'refs/tags/') }}
