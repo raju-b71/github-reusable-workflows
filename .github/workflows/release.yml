@@ -1,4 +1,4 @@
-name: Re - Reusable
+name: Release - Reusable
 on:                                                  #on when you want to run this- with workflowcall
   workflow_call:
     inputs:
