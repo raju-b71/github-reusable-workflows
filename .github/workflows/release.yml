@@ -17,7 +17,7 @@ on:                                                  #on when you want to run th
 
 jobs:
   CI_Steps:
-    runs-on: [self-hosted]                                         #added runner that we createdk
+    runs-on: [self-hosted]                                         #added runner that we createdkjoj
     steps:
       - name: Code Checkout
         uses: actions/checkout@v4
