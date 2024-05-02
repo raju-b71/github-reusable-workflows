@@ -38,7 +38,7 @@ jobs:
             common/data/common artifactory_password | artifactory_password ;
 
     
-#wwwe
+#wwwe2
       - run: echo ${GITHUB_REF_NAME} >version
         name: Create Version File
 
